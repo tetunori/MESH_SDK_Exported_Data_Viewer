@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>MESH SDK Tag Data Viewer</title>
+		<script src="./js/mesh_sdk_prettyprint.js"></script>
+		<link rel="stylesheet" href="./css/mesh_sdk_prettyprint.css" type="text/css">
+	</head>
+	<body>
+		<h1>MESH SDK Tag Data Viewer.</h1>
+
+		<h2>1. Input exported JSON tag data.</h2>
+		<textarea id="exported_JSON_tag_data_textarea" style="width: 50%; height: 3em;"></textarea>
+
+		<h2>2. Decord and View it.</h2>
+		<input type="button" id="btDecordAndView" value="Decord and View!" onclick="onClickedDecordAndViewBt();">
+
+		<div id="gorgeousRegion" style="visibility:hidden">
+			<h3> - Gorgeous Version.</h3>
+			<input type="button" id="btDLGorgeousVersion" value="Download" onclick="onClickedDLGorgeousVerBt();">
+			<div id="gorgeousView"></div>
+		</div>
+
+		<div id="simpleRegion" style="visibility:hidden">
+			<h3> - Simple Version.</h3>
+			<input type="button" id="btDLSimpleVersion" value="Download" onclick="onClickedDLSimpleVerBt();">
+			<pre id="simpleView"></pre>
+		</div>
+	</body>
+</html>
