@@ -856,3 +856,62 @@ function onClickedDecordAndViewBt(){
 	document.getElementById('simpleRegion').style.visibility = 'visible';
 
 }
+
+function onClickedDLSimpleVerBt(){
+
+	// Prepare File name
+	var file_name;
+	var tag_name;
+	var simple_view_json_data = JSON.parse( document.getElementById('exported_JSON_tag_data_textarea').value );
+	for( key in simple_view_json_data.tagData ){
+		if( key === "name" ){
+			tag_name = simple_view_json_data.tagData[key];
+			break;
+		}
+	}
+	file_name = tag_name + "_simple_view";
+
+	// Prepare donwload data
+	var file_content = '\n    << MESH SDK Custom Tag \"' + tag_name + '\" Data >> \n\n'
+		+ document.getElementById('simpleView').innerHTML;
+
+	// Download procedure
+	var blob = new Blob( [ file_content ], { "type" : "text/plain" } );
+	var a = document.createElement( 'a' );
+	a.href = URL.createObjectURL( blob );
+	a.setAttribute('download', file_name );
+	a.dispatchEvent( new CustomEvent( 'click' ) );
+
+}
+
+function onClickedDLGorgeousVerBt(){
+
+	// Prepare File name
+	var file_name;
+	var tag_name;
+	var simple_view_json_data = JSON.parse( document.getElementById('exported_JSON_tag_data_textarea').value );
+	for( key in simple_view_json_data.tagData ){
+		if( key === "name" ){
+			tag_name = simple_view_json_data.tagData[key];
+			break;
+		}
+	}
+	file_name = tag_name + "_gorgeous_view";
+
+	// Prepare donwload data
+	var file_content = '<html><head>'
+		+ '<title>' + 'MESH SDK Custom Tag \"' + tag_name + '\" Data</title>'
+		+ '<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>'
+		+ '<link rel="stylesheet" href="https://tetunori.github.io/MESH_SDK_Exported_Data_Viewer/css/mesh_sdk_prettyprint.css" type="text/css">'
+		+ '</head><body>'
+		+ '<h1>' + 'MESH SDK Custom Tag \"' + tag_name + '\" Data</h1>'
+		+ document.getElementById('gorgeousView').innerHTML + '</body></html>';
+
+	// Download procedure
+	var blob = new Blob( [ file_content ], { "type" : "text/html" } );
+	var a = document.createElement( 'a' );
+	a.href = URL.createObjectURL( blob );
+	a.setAttribute('download', file_name );
+	a.dispatchEvent( new CustomEvent( 'click' ) );
+
+}
